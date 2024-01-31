@@ -1,0 +1,77 @@
+﻿@model CRMLeades.Models.LeadsEntity
+
+@{
+    ViewData["Title"] = "AddLead";
+}
+
+<hr />
+<div class="container">
+    <div class="col-md-10 border-1">
+
+        <form asp-action="DeleteLeadDetails">
+            <input asp-for="Id" hidden />
+
+            <h2>Delete Lead Details</h2>
+            <hr />
+
+            <div class="row">
+                <div class="col-3">
+                    <label asp-for="LeadDate" class="control-label"></label>
+                    <input asp-for="LeadDate" class="form-control" readonly />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" readonly/>
+                </div>
+
+                <div class="col-3">
+                    <label asp-for="EmailAddress" class="control-label"></label>
+                    <input asp-for="EmailAddress" class="form-control" readonly />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <label asp-for="Mobile" class="control-label"></label>
+                    <input asp-for="Mobile" class="form-control" readonly/>
+                </div>
+
+                <div class="col-3">
+                    <label asp-for="LeadSource" class="control-label"></label>
+                    <input asp-for="LeadSource" class="form-control" readonly/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <label asp-for="LeadStatus" class="control-label"></label>
+                    <input asp-for="LeadStatus" class="form-control" readonly />
+                </div>
+
+                <div class="col-3">
+                    <label asp-for="NextFollowUpDate" class="control-label"></label>
+                    <input asp-for="NextFollowUpDate" class="form-control" readonly />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this?');" class="btn btn-danger" />
+                    <a asp-action="Index" asp-controller="Leads" class="btn btn-warning">Back to The Leads Page</a>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
